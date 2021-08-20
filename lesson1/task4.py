@@ -12,11 +12,11 @@
 from typing import Optional
 
 
-def bank_deposit(amount: int, term: int) -> Optional[int]:
+def bank_deposit(amount: float, term: int) -> Optional[float]:
     deposits = (
-        {'begin_sum': 0, 'end_sum': 0, 6: 5, 12: 6, 24: 5},
-        {'begin_sum': 0, 'end_sum': 0, 6: 6, 12: 7, 24: 6.5},
-        {'begin_sum': 0, 'end_sum': 0, 6: 7, 12: 8, 24: 7.5},
+        {'begin_sum': 0.0, 'end_sum': 0, 6: 5, 12: 6, 24: 5},
+        {'begin_sum': 0.0, 'end_sum': 0, 6: 6, 12: 7, 24: 6.5},
+        {'begin_sum': 0.0, 'end_sum': 0, 6: 7, 12: 8, 24: 7.5},
     )
     if 1000 <= amount < 10000:
         deposit = deposits[0]
@@ -30,7 +30,7 @@ def bank_deposit(amount: int, term: int) -> Optional[int]:
     deposit['begin_sum'] = amount
     deposit['end_sum'] += amount * deposit[term] / 100 * term / 12
 
-    return deposit['end_sum']
+    return deposit['begin_sum'] + deposit['end_sum']
 
 
 if __name__ == '__main__':
