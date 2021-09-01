@@ -12,7 +12,7 @@ import random
 import string
 
 
-def create_file(path, rows):
+def create_file(path: str, rows: int) -> None:
     if os.path.exists(path):
         print(f'File {path} exists.')
     else:
@@ -23,10 +23,10 @@ def create_file(path, rows):
                 file.write('{}\t{}\n'.format(*row))
 
 
-def read_file(path):
+def read_file(path: str) -> None:
     with open(path) as file:
         for row in file.readlines():
-            print(row.replace('\n', ''))
+            print(row.strip())
 
 
 if __name__ == '__main__':
