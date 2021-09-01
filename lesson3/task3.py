@@ -6,7 +6,7 @@
 from itertools import zip_longest
 
 
-def construct_dict(keys, values):
+def construct_dict(keys: list, values: list) -> dict:
     return dict(zip_longest(keys, values)) if len(keys) > len(values) else dict(zip(keys, values))
 
 
